@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>olly メンバーガイド</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .accent-border {
+            border-left: 4px solid #3b82f6;
+        }
+        /* ロールの詳細表示用スタイル */
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary {
+            list-style: none;
+        }
+        .copy-feedback {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+    </style>
+    <script>
+        function copyToClipboard(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            
+            const feedback = document.getElementById('copy-feedback');
+            feedback.style.display = 'block';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</head>
+<body class="pb-10">
+
+    <div id="copy-feedback" class="copy-feedback">コピーしました</div>
+
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-6 text-center sticky top-0 z-50 shadow-md">
+        <h1 class="text-xl font-bold">olly Member Guide</h1>
+        <p class="text-xs opacity-90 mt-1">メンバーのための活動・連絡マニュアル</p>
+    </header>
+
+    <main class="p-4 max-w-md mx-auto">
+
+        <!-- Discord Section -->
+        <section class="mb-8">
+            <div class="flex items-center mb-3">
+                <span class="bg-indigo-100 p-2 rounded-lg mr-2">
+                    <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.946-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/></svg>
+                </span>
+                <h2 class="text-xl font-bold text-gray-800">Discord 運用</h2>
+            </div>
+
+            <!-- 通知のルール -->
+            <div class="card p-4 border-2 border-red-500 bg-red-50 mb-4 text-center">
+                <div class="flex items-center justify-center mb-2">
+                    <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded font-bold mr-2 uppercase tracking-wider">Must</span>
+                    <h3 class="font-bold text-red-700 text-sm">通知は必ずオンに設定</h3>
+                </div>
+                <p class="text-xs text-gray-700 leading-relaxed">
+                    会話は原則Discordで行われます。連絡の見逃しは厳禁です。
+                </p>
+            </div>
+
+            <!-- コミュニケーションラベル -->
+            <div class="card p-4 accent-border">
+                <h3 class="font-bold text-indigo-700 mb-2 text-sm">コミュニケーションスタイル</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        <span class="inline-block bg-indigo-600 text-white text-[10px] px-2 py-1 rounded mb-1 font-bold">Professional</span>
+                        <p class="text-sm text-gray-800 font-bold italic">「仕事」イメージ</p>
+                        <p class="text-[11px] text-gray-500">プロジェクトのみ進行（オンライン可）。交流会や打ち上げは不参加。</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                        <span class="inline-block bg-pink-500 text-white text-[10px] px-2 py-1 rounded mb-1 font-bold">Social</span>
+                        <p class="text-sm text-gray-800 font-bold italic">「サークル」イメージ</p>
+                        <p class="text-[11px] text-gray-500">交流会にも参加したい。仕事以外でも飲み会などに行きたい人向け。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ロール（碁盤の目状リスト） -->
+            <div class="card p-4">
+                <h3 class="font-bold text-gray-700 mb-3 text-sm italic">Roles - タップして役割を確認</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <details class="group">
+                        <summary class="flex flex-col items-center justify-center p-4 border rounded-xl bg-blue-50 cursor-pointer group-open:ring-2 group-open:ring-blue-400 transition-all shadow-sm active:scale-95">
+                            <span class="text-sm font-bold text-blue-700">Producer</span>
+                            <span class="text-[10px] text-blue-400 mt-1 uppercase">Mentor</span>
+                        </summary>
+                        <div class="mt-2 p-2 bg-white text-[10px] text-gray-600 border-l-2 border-blue-400 leading-relaxed animate-fade-in">
+                            プロジェクトに指導するメンター的な役割です。
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex flex-col items-center justify-center p-4 border rounded-xl bg-blue-50 cursor-pointer group-open:ring-2 group-open:ring-blue-400 transition-all shadow-sm active:scale-95">
+                            <span class="text-sm font-bold text-blue-700">Manager</span>
+                            <span class="text-[10px] text-blue-400 mt-1 uppercase">Director</span>
+                        </summary>
+                        <div class="mt-2 p-2 bg-white text-[10px] text-gray-600 border-l-2 border-blue-400 leading-relaxed animate-fade-in">
+                            プロジェクトの全体を統括する役割です。
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex flex-col items-center justify-center p-4 border rounded-xl bg-blue-50 cursor-pointer group-open:ring-2 group-open:ring-blue-400 transition-all shadow-sm active:scale-95">
+                            <span class="text-sm font-bold text-blue-700">Doer</span>
+                            <span class="text-[10px] text-blue-400 mt-1 uppercase">Member</span>
+                        </summary>
+                        <div class="mt-2 p-2 bg-white text-[10px] text-gray-600 border-l-2 border-blue-400 leading-relaxed animate-fade-in">
+                            プロジェクトに所属し、リーダーの下で動く役割です。
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex flex-col items-center justify-center p-4 border rounded-xl bg-blue-50 cursor-pointer group-open:ring-2 group-open:ring-blue-400 transition-all shadow-sm active:scale-95">
+                            <span class="text-sm font-bold text-blue-700">Trainee</span>
+                            <span class="text-[10px] text-blue-400 mt-1 uppercase">Free</span>
+                        </summary>
+                        <div class="mt-2 p-2 bg-white text-[10px] text-gray-600 border-l-2 border-blue-400 leading-relaxed animate-fade-in">
+                            特定のプロジェクトに所属せず、活動参加や企画作成を行います。
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- 主要チャンネル -->
+            <div class="card p-4 bg-slate-800 text-white">
+                <div class="flex items-center mb-3">
+                    <span class="text-lg mr-2">#</span>
+                    <h3 class="font-bold text-sm text-blue-300">主要チャンネルの目的</h3>
+                </div>
+                <ul class="text-[11px] space-y-3">
+                    <li class="flex flex-col border-b border-slate-700 pb-2">
+                        <span class="font-bold text-slate-200">運営メンバー限定</span>
+                        <span class="text-slate-400 text-[10px]">自由に口出しok</span>
+                    </li>
+                    <li class="flex flex-col border-b border-slate-700 pb-2">
+                        <span class="font-bold text-slate-200">メンバー募集</span>
+                        <span class="text-slate-400 text-[10px]">プロジェクトの人員募集掲示板</span>
+                    </li>
+                    <li class="flex flex-col border-b border-slate-700 pb-2">
+                        <span class="font-bold text-slate-200">アイデアの倉庫</span>
+                        <span class="text-slate-400 text-[10px]">リーダー募集</span>
+                    </li>
+                    <li class="flex flex-col border-b border-slate-700 pb-2">
+                        <span class="font-bold text-slate-200">イベント運営募集</span>
+                        <span class="text-slate-400 text-[10px]">イベント当日の運営スタッフ募集</span>
+                    </li>
+                    <li class="flex flex-col">
+                        <span class="font-bold text-slate-200">便利なツール</span>
+                        <span class="text-blue-300 text-[10px]">AIなどの役立つツール情報を掲載</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Mail Section -->
+        <section class="mb-8">
+            <div class="flex items-center mb-3">
+                <span class="bg-green-100 p-2 rounded-lg mr-2">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </span>
+                <h2 class="text-xl font-bold text-gray-800">メール作成・送信</h2>
+            </div>
+
+            <div class="card p-4 accent-border border-green-500">
+                <h3 class="font-bold text-green-700 mb-2 text-sm">作成方法</h3>
+                <p class="text-xs text-gray-600 mb-3 leading-relaxed">
+                    <span class="font-bold text-gray-800 underline">olly AI</span> に「メールを作成して」と送るのが推奨です。
+                </p>
+                <div class="bg-gray-50 border p-3 rounded-lg text-xs font-mono text-gray-700">
+                    <p class="text-blue-600 font-bold mb-1">【必須テンプレ】</p>
+                    <p>◯◯様</p>
+                    <p>お世話になっております。</p>
+                    <p>ollyの◯◯(名前)です。</p>
+                    <div class="h-8 border-l border-dashed border-gray-300 my-2 ml-2 italic text-gray-400">本文</div>
+                    <p>◯◯(名前)</p>
+                </div>
+            </div>
+
+            <div class="card p-4">
+                <h3 class="font-bold text-gray-700 mb-2 text-sm italic underline">CC設定（必須）</h3>
+                <p class="text-[9px] text-gray-400 mb-2">タップしてアドレスをコピー</p>
+                <div class="space-y-2">
+                    <button onclick="copyToClipboard('olly.datacenter@gmail.com')" class="w-full text-left block bg-gray-100 p-2 rounded text-[10px] font-bold text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-colors border border-transparent active:border-blue-300">
+                        olly.datacenter@gmail.com
+                    </button>
+                    <button onclick="copyToClipboard('olly.shibuya@gmail.com')" class="w-full text-left block bg-gray-100 p-2 rounded text-[10px] font-bold text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-colors border border-transparent active:border-blue-300">
+                        olly.shibuya@gmail.com
+                    </button>
+                    <p class="text-[9px] text-gray-400 italic">※各プロジェクトの統括集約アドレスも含む</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules Section -->
+        <section class="mb-8">
+            <div class="flex items-center mb-3">
+                <span class="bg-orange-100 p-2 rounded-lg mr-2">
+                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </span>
+                <h2 class="text-xl font-bold text-gray-800">重要ルール</h2>
+            </div>
+
+            <div class="card p-4 bg-orange-50 border-l-4 border-orange-400">
+                <h3 class="font-bold text-orange-700 mb-2 text-sm">停滞の定義</h3>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-orange-100">
+                    <p class="text-[11px] text-gray-500 mb-1">連絡が途切れてから</p>
+                    <p class="text-xl font-bold text-red-600 mb-1">2日以上</p>
+                    <p class="text-[11px] text-gray-700 font-bold border-t pt-2 mt-1">→ <span class="bg-yellow-200 px-1">kimiさんに即時報告</span></p>
+                </div>
+            </div>
+
+            <div class="card p-4 accent-border border-sky-400">
+                <h3 class="font-bold text-sky-700 mb-2 text-sm italic">Immediate Response</h3>
+                <p class="text-xs text-gray-700 mb-2">原則<span class="font-bold text-sky-600 underline">1日以内に返信</span>すること。</p>
+                <p class="text-[10px] bg-sky-50 p-2 rounded text-gray-600 italic">
+                    ※難しい場合は「いつまでに返信できるか」だけでも伝える。
+                </p>
+            </div>
+
+            <div class="card p-5 bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-xl">
+                <h3 class="font-bold mb-2 text-xs opacity-80 tracking-widest uppercase">Fundamental</h3>
+                <p class="text-sm font-bold leading-relaxed mb-1">
+                    ollyは学習の一環ですが、
+                </p>
+                <p class="text-lg font-bold text-yellow-300 underline decoration-2 underline-offset-4">
+                    日々の勉強をこなしている
+                </p>
+                <p class="text-sm font-bold mt-1">ことが大前提の活動です。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-400 text-[10px] mt-10">
+        &copy; olly Member Guidelines
+    </footer>
+
+</body>
+</html>
